@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Forest green theme for agriculture */
+    --background: 120 15% 97%;
+    --foreground: 140 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 25% 15%;
+
+    /* Primary: Deep forest green */
+    --primary: 145 45% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Warm earth tone */
+    --secondary: 35 40% 92%;
+    --secondary-foreground: 35 45% 25%;
+
+    --muted: 120 10% 94%;
+    --muted-foreground: 140 10% 45%;
+
+    /* Accent: Rich amber */
+    --accent: 38 92% 50%;
+    --accent-foreground: 38 95% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 145 45% 28%;
+
+    --radius: 0.75rem;
+
+    /* Success green for positive values */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 95% 15%;
+
+    /* Chart colors */
+    --chart-1: 145 45% 35%;
+    --chart-2: 38 92% 50%;
+    --chart-3: 200 75% 45%;
+    --chart-4: 280 65% 50%;
+    --chart-5: 15 80% 55%;
+
+    /* Sidebar */
+    --sidebar-background: 145 25% 18%;
+    --sidebar-foreground: 120 15% 95%;
+    --sidebar-primary: 145 45% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 145 30% 25%;
+    --sidebar-accent-foreground: 120 15% 95%;
+    --sidebar-border: 145 20% 25%;
+    --sidebar-ring: 145 45% 50%;
+
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(145 45% 28%) 0%, hsl(165 40% 35%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(120 15% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(25 90% 55%) 100%);
+  }
+
+  .dark {
+    --background: 140 20% 8%;
+    --foreground: 120 15% 95%;
+
+    --card: 140 20% 12%;
+    --card-foreground: 120 15% 95%;
+
+    --popover: 140 20% 12%;
+    --popover-foreground: 120 15% 95%;
+
+    --primary: 145 55% 45%;
+    --primary-foreground: 140 20% 8%;
+
+    --secondary: 140 15% 18%;
+    --secondary-foreground: 120 15% 90%;
+
+    --muted: 140 15% 18%;
+    --muted-foreground: 140 10% 60%;
+
+    --accent: 38 85% 55%;
+    --accent-foreground: 38 95% 10%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 15% 20%;
+    --input: 140 15% 20%;
+    --ring: 145 55% 45%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 142 70% 10%;
+
+    --warning: 38 85% 55%;
+    --warning-foreground: 38 95% 10%;
+
+    --sidebar-background: 140 25% 8%;
+    --sidebar-foreground: 120 15% 95%;
+    --sidebar-primary: 145 55% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 20% 15%;
+    --sidebar-accent-foreground: 120 15% 95%;
+    --sidebar-border: 140 20% 15%;
+    --sidebar-ring: 145 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: var(--gradient-hero);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-card/80;
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px hsl(var(--primary) / 0.05), 
+                0 2px 4px -2px hsl(var(--primary) / 0.05);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 10px 15px -3px hsl(var(--primary) / 0.1), 
+                0 4px 6px -4px hsl(var(--primary) / 0.1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50 transition-colors;
+}
+
+/* Table styling */
+.data-table {
+  @apply w-full border-collapse;
+}
+
+.data-table th {
+  @apply text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground px-4 py-3 border-b;
+}
+
+.data-table td {
+  @apply px-4 py-3 border-b border-border/50;
+}
+
+.data-table tr:hover td {
+  @apply bg-muted/50;
+}
+
+/* Input focus states */
+input:focus, textarea:focus, select:focus {
+  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
